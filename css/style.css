@@ -762,6 +762,10 @@ ol {
 	padding-left: 0px;
 	padding-top: 200px;
 }
+.hero-image {
+	max-width:90% !important;
+	padding-top:70px;
+},
 
 .home-two-style .hero-image img {
 	-webkit-box-shadow: 6px 20px 50px rgba(0, 0, 0, 0.5294117647);
@@ -1230,13 +1234,15 @@ ol {
 }
 @media only screen and (max-width: 1000px) {
 	.hero-image {
-		display: none;
+		padding:10px;
+		margin-left:20px;
+		margin-top:15vw;
 	}
 }
 
 @media only screen and (max-width: 1600px) {
 	.hero-text h2 {
-		font-size: 120px;
+		font-size: 110px;
 	}
 
 }
