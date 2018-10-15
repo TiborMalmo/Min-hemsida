@@ -8,12 +8,63 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
-html,
+html {
+	max-width:2000px;
+	margin:0 auto;
+	background-color: #f2f7f8;
+	},
 body {
 	height: 100%;
 	font-family: 'Josefin Sans', sans-serif;
 }
+.emoji {
+	margin-right:10px;
+}
+.scrollup {
+    height: 50px;
+    width: 200px;
+    opacity:0;
+    padding:10px;
+		text-decoration:underline;
+    text-align:center;
+    font-weight:bold;
+    color:#000;
+		padding-bottom:5px;
+		padding-top:7px;
+    position:fixed;
+		font-size:56px;
+		z-index:10;
+    bottom:40px;
+		border-radius:10px;
 
+    right:10px;
+		display:inline-block;
+    transition:opacity 1s ease-in;
+}
+.scrollup.visible {
+    opacity:1;
+}
+.popupinfo {
+	margin-bottom:40px;
+}
+.contact-background {
+	padding:5px;
+	width:100%;
+	background-color:#f2f7f8;
+	text-align:center;
+	z-index:10;
+
+
+}
+.top {
+	font-size: 16px;
+	margin: 5px;
+	margin-bottom:5px;
+	float:none;
+	padding-bottom:5px;
+	display: inline-block;
+	font-weight: 500;
+}
 h1,
 h2,
 h3,
@@ -24,6 +75,15 @@ h6 {
 	margin: 0;
 	font-weight: 600;
 	font-family: 'Josefin Sans', sans-serif;
+}
+.navigation {
+	float:left;
+	margin-bottom:0rem;
+	z-index:10;
+}
+.navigation p {
+margin-right:120px;
+	display:block;
 }
 .social {
 	font-size:30px;
@@ -36,6 +96,68 @@ h2 {
 h3 {
 	font-size: 30px;
 }
+/* Popup box BEGIN */
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+
+    line-height: 26px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+		margin-bottom:5px;
+		float:none;
+		padding-bottom:5px;
+    display: inline-block;
+    font-weight: 500;
+
+}
+/* Popup box BEGIN */
 
 p {
 	font-size: 18px;
@@ -49,6 +171,7 @@ p {
 }
 img {
 	max-width: 100%;
+	padding-left:10px;
 }
 
 input:focus,
@@ -75,7 +198,7 @@ ol {
 -----------------------*/
 .spad {
 	padding-top: 125px;
-	padding-bottom: 110px;
+	padding-bottom: 60px;
 }
 
 .section-title h2 {
@@ -764,7 +887,6 @@ ol {
 }
 .hero-image {
 	max-width:90% !important;
-	padding-top:70px;
 },
 
 .home-two-style .hero-image img {
@@ -1221,7 +1343,11 @@ ol {
 	}
 }
 @media only screen and (max-width: 600px) {
-
+.scrollup {
+font-size:30px;
+right:5px;
+text-align:right;
+}
 	.work-header {
 		font-size:37px;
 	}
@@ -1231,12 +1357,23 @@ ol {
 	.language-progress {
 		padding-top:3rem !important;
 	}
+	.contactq {
+		font-size:15px;
+	}
+	.hover_bkgr_fricc > div {
+		width:300px;
+	}
 }
 @media only screen and (max-width: 1000px) {
 	.hero-image {
-		padding:10px;
-		margin-left:20px;
-		margin-top:15vw;
+		padding:4%;
+		margin-left:5%;
+	}
+}
+@media only screen and (max-width: 1000px) {
+	.hero-image {
+
+		margin-left:3%;
 	}
 }
 
@@ -1371,7 +1508,13 @@ ol {
 	}
 	.hero-text h2 {
 		font-size: 80px;
+		padding-bottom:5px;
+
+		display:inline-block;
 	}
+	.hero-text h2::after {
+		border-bottom:3px solid #000;
+}
 	.portfolio-warp {
 		padding: 0;
 	}

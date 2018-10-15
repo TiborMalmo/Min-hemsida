@@ -2,7 +2,7 @@
 ------------------------------------
 	Civic - CV Resume
 	Version: 1.0
- ------------------------------------ 
+ ------------------------------------
  ====================================*/
 
 
@@ -10,15 +10,86 @@
 'use strict';
 
 
-$(window).on('load', function() { 
+$(window).on('load', function() {
 	/*------------------
 		Preloder
 	--------------------*/
-	$(".loader").fadeOut(); 
+	$(".loader").fadeOut();
 	$("#preloder").delay(400).fadeOut("slow");
 
 });
+$(window).load(function () {
+    $(".trigger_popup_fricc").click(function(){
+       $('.hover_bkgr_fricc').show();
+    });
+    $('.hover_bkgr_fricc').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+});
+jQuery(document).ready(function () {
+    jQuery(window).scroll(function () {
+        if (jQuery(this).scrollTop() > 300) {
+            jQuery('.scrollup').addClass('visible');
+        } else {
+            jQuery('.scrollup').removeClass('visible');
+        }
+    });
+    // scroll-to-top animate
+    jQuery('.scrollup').click(function () {
+        jQuery("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+});
+if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
 
+function wheel(event) {
+    var delta = 0;
+    if (event.wheelDelta) delta = event.wheelDelta / 120;
+    else if (event.detail) delta = -event.detail / 3;
+
+    handle(delta);
+    if (event.preventDefault) event.preventDefault();
+    event.returnValue = false;
+}
+
+// scrolling stuff
+
+var goUp = true;
+var end = null;
+var interval = null;
+
+function handle(delta) {
+	var animationInterval = 10; //lower is faster
+  var scrollSpeed = 30; //lower is faster
+
+	if (end == null) {
+  	end = $(window).scrollTop();
+  }
+  end -= 20 * delta;
+  goUp = delta > 0;
+
+  if (interval == null) {
+    interval = setInterval(function () {
+      var scrollTop = $(window).scrollTop();
+      var step = Math.round((end - scrollTop) / scrollSpeed);
+      if (scrollTop <= 0 ||
+          scrollTop >= $(window).prop("scrollHeight") - $(window).height() ||
+          goUp && step > -1 ||
+          !goUp && step < 1 ) {
+        clearInterval(interval);
+        interval = null;
+        end = null;
+      }
+      $(window).scrollTop(scrollTop + step );
+    }, animationInterval);
+  }
+}
 
 (function($) {
 
@@ -57,7 +128,7 @@ $(window).on('load', function() {
 		var progress = $(this).data("lanprogesss");
 		var ele      = '<span></span>';
 		var ele_fade = '<span class="fade-ele"></span>';
-		
+
 		for (var i = 1; i <= 5; i++) {
 			if(i <= progress){
 				$(this).append(ele);
@@ -137,4 +208,3 @@ if($().circleProgress){
 }
 
 })(jQuery);
-
