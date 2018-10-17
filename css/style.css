@@ -1031,7 +1031,7 @@ text-align:right;
 		display:block;
 		border-top: 2px solid rgba(0,0,0,.1);
 		margin-top:0px;
-		margin-bottom:50px;
+		margin-bottom:30vw;
 	}
 	.hero-text h2::after {
 		border-bottom:3px solid #000;
